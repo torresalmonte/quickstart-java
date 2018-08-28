@@ -1,0 +1,22 @@
+{
+    "posts": [
+        {
+            "author": "John Doe",
+            "body": "post 1 body",
+            "title": "post 1 title",
+            "uid": "johndoe1"
+        },
+        {
+            "author": "John Doe",
+            "body": "post 2 body",
+            "title": "post 2 title",
+            "uid": "johndoe2"
+        },
+        {
+            "author": "John Doe",
+            "body": "post 3 body",
+            "title": "post 3 title",
+            "uid": "johndoe3"
+        }
+    ]
+}
