@@ -181,13 +181,28 @@ public class Database {
     public static void main(String[] args) {
         // Initialize Firebase
         try {
+
+            System.out.println("STARTING");
+
             // [START initialize]
+
+            System.out.println("PRE SERVICE-ACCOUNT READ");
+
             FileInputStream serviceAccount = new FileInputStream("service-account.json");
+
+            System.out.println("POST SERVICE-ACCOUNT READ");
+
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl(DATABASE_URL)
                     .build();
+
+            System.out.println("FIREBASE OPTIONS BUILDED");
+
             FirebaseApp.initializeApp(options);
+
+            System.out.println("FIREBASE APP INITIALIZED");
+
             // [END initialize]
         } catch (IOException e) {
             System.out.println("ERROR: invalid service account credentials. See README.");
@@ -199,11 +214,16 @@ public class Database {
         // Shared Database reference
         database = FirebaseDatabase.getInstance().getReference();
 
+        System.out.println("RECOVERED DATABASE REFERENCE");
+
         // Start listening to the Database
         startListeners();
 
+        System.out.println("LISTENING TO THE DATABASE");
+
         // Kick off weekly email task
         startWeeklyTopPostEmailer();
+
     }
 
 }

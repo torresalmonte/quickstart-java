@@ -41,7 +41,7 @@ public class MyEmailer {
         update.put("/posts/" + postId + "/lastNotificationTimestamp", ServerValue.TIMESTAMP);
         update.put("/user-posts/" + uid + "/" + postId + "/lastNotificationTimestamp", ServerValue.TIMESTAMP);
 
-        FirebaseDatabase.getInstance().getReference().updateChildren(update);
+        FirebaseDatabase.getInstance().getReference().updateChildrenAsync(update);
         // [END write_fan_out]
     }
 
@@ -56,7 +56,7 @@ public class MyEmailer {
             // [START basic_write]
             DatabaseReference userRef = FirebaseDatabase.getInstance().getReference()
                     .child("users").child(userId).child("lastSentWeeklyTimestamp");
-            userRef.setValue(ServerValue.TIMESTAMP);
+            userRef.setValueAsync(ServerValue.TIMESTAMP);
             // [END basic_write]
         }
     }
